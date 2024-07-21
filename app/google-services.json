@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76492114256",
+    "project_id": "finance-app2-1e774",
+    "storage_bucket": "finance-app2-1e774.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76492114256:android:34d6527ba48261042a8455",
+        "android_client_info": {
+          "package_name": "com.bulentoral.financeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfqUXWUzaMtaphH2bTQl7aQ-uDnGpQz-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
