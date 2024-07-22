@@ -1,11 +1,10 @@
 package com.bulentoral.financeapp.ui.splash
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.bulentoral.financeapp.MainActivity
+import com.bulentoral.financeapp.ui.MainActivity
 import com.bulentoral.financeapp.R
 import com.bulentoral.financeapp.ui.Auth.AuthActivity
 import com.bulentoral.financeapp.ui.Auth.AuthRepository
