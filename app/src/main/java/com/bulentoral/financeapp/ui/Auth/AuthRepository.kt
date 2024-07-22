@@ -5,8 +5,6 @@ import com.bulentoral.financeapp.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-// AuthRepository.kt
-// AuthRepository.kt
 class AuthRepository {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -55,6 +53,14 @@ class AuthRepository {
     fun isRemembered(context: Context): Boolean {
         val sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getBoolean("isRemembered", false)
+    }
+    fun signOut(callback: (Boolean, String?) -> Unit) {
+        try {
+            auth.signOut()
+            callback(true, null)
+        } catch (e: Exception) {
+            callback(false, e.message)
+        }
     }
 }
 

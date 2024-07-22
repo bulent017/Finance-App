@@ -20,8 +20,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
     override val viewModel by viewModels<RegisterViewModel>()
 
     override fun onCreateFinished() {
-        // UI bileşenlerini burada başlatabilirsiniz
-        // Örnek: binding.usernameEditText, binding.passwordEditText gibi
         binding.progressBar.visibility = View.GONE
     }
 
@@ -48,7 +46,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
                 )
                 viewModel.registerUser(user, password)
             } else {
-                // Boş alan varsa kullanıcıya bilgi ver
                 showToast(requireContext(),"Please fill in all fields.")
             }
         }
@@ -64,7 +61,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
             val (success, message) = result
             if (success) {
                 Toast.makeText(context, "Registration successful", Toast.LENGTH_SHORT).show()
-                // Navigation veya diğer işlemler burada yapılabilir.
                 navigateToFragment(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
             } else {
                 Toast.makeText(context, "Registration failed: $message", Toast.LENGTH_SHORT).show()

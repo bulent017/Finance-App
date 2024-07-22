@@ -5,4 +5,8 @@
         android:icon="@drawable/add_24"
         android:title="Add Account"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_logout"
+        android:icon="@drawable/logout"
+        android:title="Add Account"
+        app:showAsAction="ifRoom"/>
 </menu>

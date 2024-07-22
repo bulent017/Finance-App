@@ -25,7 +25,7 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
         fetchBankAccounts()
     }
 
-    private fun fetchBankAccounts() {
+    public fun fetchBankAccounts() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
             _isLoading.value = true

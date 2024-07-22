@@ -1,5 +1,6 @@
 package com.bulentoral.financeapp.ui.Account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bulentoral.financeapp.R
 import com.bulentoral.financeapp.base.BaseFragment
 import com.bulentoral.financeapp.databinding.FragmentAccountBinding
+import com.bulentoral.financeapp.ui.Auth.AuthActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -17,22 +20,18 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>(
 ) {
     private lateinit var viewModelFactory: AccountViewModelFactory
     override val viewModel: AccountViewModel by viewModels { viewModelFactory }
-
+    private lateinit var auth: FirebaseAuth
     private lateinit var bankAccountAdapter: BankAccountAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Firebase Firestore instance
         val firestore = FirebaseFirestore.getInstance()
 
-        // Create repository
         val repository = AccountRepository(firestore)
 
-        // Create ViewModelFactory
         viewModelFactory = AccountViewModelFactory(repository)
 
-        // Initialize adapter
         bankAccountAdapter = BankAccountAdapter(emptyList())
     }
 
@@ -42,8 +41,9 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>(
             adapter = bankAccountAdapter
         }
 
-
+        auth = FirebaseAuth.getInstance()
         binding.progressBarAccount.visibility = View.GONE
+        viewModel.fetchBankAccounts()
     }
 
     override fun initializeListeners() {
@@ -51,6 +51,10 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>(
             when (item.itemId) {
                 R.id.action_add_account -> {
                     findNavController().navigate(R.id.action_accountFragment_to_addAccountFragment)
+                    true
+                }
+                R.id.action_logout ->{
+                    logoutUser()
                     true
                 }
                 else -> false
@@ -76,5 +80,12 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountViewModel>(
         viewModel.totalBalance.observe(viewLifecycleOwner, Observer { totalBalance ->
             binding.balanceInfoText.text = "$totalBalance TL"
         })
+    }
+    private fun logoutUser() {
+        auth.signOut()
+        val intent = Intent(activity, AuthActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        activity?.finish()
     }
 }

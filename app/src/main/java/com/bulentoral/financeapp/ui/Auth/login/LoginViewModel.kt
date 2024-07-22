@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.bulentoral.financeapp.ui.Auth.AuthRepository
 import kotlinx.coroutines.launch
 
-// LoginViewModel.kt
 class LoginViewModel : ViewModel() {
     private val authRepository = AuthRepository()
 

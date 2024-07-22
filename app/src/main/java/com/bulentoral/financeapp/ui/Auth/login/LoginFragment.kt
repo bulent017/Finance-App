@@ -18,15 +18,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
     override val viewModel by viewModels<LoginViewModel>()
 
     override fun onCreateFinished() {
-        // UI bileşenlerini burada başlatabilirsiniz
-        // Örnek: binding.usernameEditText, binding.passwordEditText gibi
+
         binding.progressBarLogin.visibility = View.GONE
     }
 
     override fun initializeListeners() {
-        // Kullanıcı etkileşimleri için dinleyicileri burada ayarlayın
         binding.signUpButton.setOnClickListener {
-            // Kayıt ekranına git
             navigateToFragment(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
         binding.loginButton.setOnClickListener {
@@ -39,7 +36,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
             ) {
                 viewModel.loginUser(email, password)
             } else {
-                // Boş alan varsa kullanıcıya bilgi ver
                 showToast(requireContext(), "Please fill in all fields.")
             }
 
@@ -62,7 +58,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
             val (success, message) = result
             if (success) {
             showToast(requireActivity(),"Login successful")
-                //Home geçiş yapın
                 requireActivity().navigateToActivity(MainActivity::class.java)
 
             } else {
