@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/accountFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -24,4 +24,30 @@
         android:name="com.bulentoral.financeapp.ui.AddAccount.AddAccountFragment"
         android:label="fragment_add_account"
         tools:layout="@layout/fragment_add_account" />
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.bulentoral.financeapp.ui.transfer.transferControl.TransferFragment"
+        android:label="fragment_transfer"
+        tools:layout="@layout/fragment_transfer" >
+        <action
+            android:id="@+id/action_transferFragment_to_transferInfoFragment"
+            app:destination="@id/transferInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferInfoFragment"
+        android:name="com.bulentoral.financeapp.ui.transfer.transeferInfo.TransferInfoFragment"
+        android:label="fragment_transfer_info"
+        tools:layout="@layout/fragment_transfer_info" >
+        <action
+            android:id="@+id/action_transferInfoFragment_to_transferFragment"
+            app:destination="@id/transferFragment" />
+        <argument
+            android:name="ibanInfo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment2"
+        android:name="com.bulentoral.financeapp.ui.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

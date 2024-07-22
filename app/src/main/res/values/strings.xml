@@ -5,4 +5,5 @@
     <string name="add_account">Add Account</string>
     <string name="account">Account</string>
     <string name="bank_name">bank name</string>
+    <string name="transfer_eft">Transfer/EFT</string>
 </resources>
