@@ -3,9 +3,13 @@
     <style name="Base.Theme.FinanceApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+        <item name="colorPrimary">@color/primary_color_blue</item>
+        <item name="colorPrimaryDark">@color/dark_primary_color_blue</item>
+        <item name="colorAccent">@color/accent_color_blue</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>    </style>
 
     <style name="Theme.FinanceApp" parent="Base.Theme.FinanceApp" />
+
     <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="android:textColorHint">@color/primary_text_black</item>
         <item name="hintTextColor">@color/secondary_text_grey</item>
@@ -33,5 +37,10 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/alata</item>
+    </style>
+    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="itemIconTint">@color/primary_text_black</item>
+        <item name="itemTextColor">@color/primary_text_black</item>
+        <item name="backgroundTint">@color/white</item>
     </style>
 </resources>
