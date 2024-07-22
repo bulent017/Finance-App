@@ -3,11 +3,9 @@ package com.bulentoral.financeapp.ui.Auth.login
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.bulentoral.financeapp.MainActivity
+import com.bulentoral.financeapp.ui.MainActivity
 import com.bulentoral.financeapp.base.BaseFragment
 import com.bulentoral.financeapp.databinding.FragmentLoginBinding
-import com.bulentoral.financeapp.ui.Auth.AuthActivity
-import com.bulentoral.financeapp.utils.NavigationUtils
 import com.bulentoral.financeapp.utils.NavigationUtils.navigateToActivity
 import com.bulentoral.financeapp.utils.NavigationUtils.navigateToFragment
 import com.bulentoral.financeapp.utils.ValidationUtils.showToast
